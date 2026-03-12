@@ -1,0 +1,385 @@
+{
+  "/u2/cvs/BRB_SCCI-SYMANTEC.side,v": {
+    "groupId": 505,
+    "groupName": "cvs"
+  },
+  "/u2/cvs/Demhab": {
+    "groupId": 505,
+    "groupName": "cvs"
+  },
+  "/u2/cvs/ProgSP": {
+    "groupId": 505,
+    "groupName": "cvs"
+  },
+  "/u2/cvs/Programas": {
+    "groupId": 505,
+    "groupName": "cvs"
+  },
+  "/u2/cvs/Testes_Automatizados/AR": {
+    "groupId": 1000,
+    "groupName": "qa"
+  },
+  "/u2/cvs/Testes_Automatizados/AR-OSE": {
+    "groupId": 1000,
+    "groupName": "qa"
+  },
+  "/u2/cvs/Testes_Automatizados/supdf": {
+    "groupId": 1143,
+    "groupName": "sup-df"
+  },
+  "/u2/cvs/Testes_Automatizados/supmg": {
+    "groupId": 1085,
+    "groupName": "sup-mg"
+  },
+  "/u2/cvs/Testes_Automatizados/supsp/ITAU_GESTAO/NAVEGACAO": {
+    "groupId": 1074,
+    "groupName": "sup-sp"
+  },
+  "/u2/cvs/Testes_Automatizados/supsp/ITAU_GESTAO/VALORES": {
+    "groupId": 1074,
+    "groupName": "sup-sp"
+  },
+  "/u2/cvs/Testes_Automatizados/supsp/ITAU_GESTAO": {
+    "groupId": 1224
+  },
+  "/u2/cvs/Testes_Automatizados/supsp": {
+    "groupId": 1074,
+    "groupName": "sup-sp"
+  },
+  "/u2/cvs/Testes_Automatizados/supsul": {
+    "groupId": 1076,
+    "groupName": "sup-sul"
+  },
+  "/u2/cvs/Testes_Automatizados": {
+    "groupId": 542,
+    "groupName": "sup"
+  },
+  "/u2/cvs/cvs.err": {
+    "groupId": 505,
+    "groupName": "cvs"
+  },
+  "/u2/cvs/despesasOperacao.xml,v": {
+    "groupId": 505,
+    "groupName": "cvs"
+  },
+  "/u2/cvs/docker": {
+    "groupId": 505,
+    "groupName": "cvs"
+  },
+  "/u2/cvs/extws7": {
+    "groupId": 505,
+    "groupName": "cvs"
+  },
+  "/u2/cvs/fileattr.ant": {
+    "groupId": 542,
+    "groupName": "sup"
+  },
+  "/u2/cvs/gerarcrc": {
+    "groupId": 505,
+    "groupName": "cvs"
+  },
+  "/u2/cvs/proglib/evolib": {
+    "groupId": 1140,
+    "groupName": "cvs_master"
+  },
+  "/u2/cvs/scci/arqs/ailos": {
+    "groupId": 542,
+    "groupName": "sup"
+  },
+  "/u2/cvs/scci/arqs/autbank": {
+    "groupId": 542,
+    "groupName": "sup"
+  },
+  "/u2/cvs/scci/arqs/bancoob": {
+    "groupId": 1143,
+    "groupName": "sup-df"
+  },
+  "/u2/cvs/scci/arqs/band": {
+    "groupId": 1085,
+    "groupName": "sup-mg"
+  },
+  "/u2/cvs/scci/arqs/banese": {
+    "groupId": 542,
+    "groupName": "sup"
+  },
+  "/u2/cvs/scci/arqs/banpara": {
+    "groupId": 1143,
+    "groupName": "sup-df"
+  },
+  "/u2/cvs/scci/arqs/bari/xmltelas_cliente/Attic/filtraTarefa.BKP26062019.xml,v": {
+    "groupId": 1154,
+    "groupName": "cvs_des"
+  },
+  "/u2/cvs/scci/arqs/bari/xmltelas_cliente/Attic/framepretendenteAnalise.BKP11062019.xml,v": {
+    "groupId": 1154,
+    "groupName": "cvs_des"
+  },
+  "/u2/cvs/scci/arqs/bari/xmltelas_cliente/Attic/framepretendenteAnalise.BKP18062019.xml,v": {
+    "groupId": 1154,
+    "groupName": "cvs_des"
+  },
+  "/u2/cvs/scci/arqs/bari/xmltelas_cliente/Attic/implantarContrato.BKP10072019.xml,v": {
+    "groupId": 1154,
+    "groupName": "cvs_des"
+  },
+  "/u2/cvs/scci/arqs/bari/xmltelas_cliente/Attic/treeviewpretendentesNovo_bkp.xml,v": {
+    "groupId": 1154,
+    "groupName": "cvs_des"
+  },
+  "/u2/cvs/scci/arqs/bari": {
+    "groupId": 1074,
+    "groupName": "sup-sp"
+  },
+  "/u2/cvs/scci/arqs/barigui": {
+    "groupId": 1074,
+    "groupName": "sup-sp"
+  },
+  "/u2/cvs/scci/arqs/bbc": {
+    "groupId": 542,
+    "groupName": "sup"
+  },
+  "/u2/cvs/scci/arqs/bmg": {
+    "groupId": 1074,
+    "groupName": "sup-sp"
+  },
+  "/u2/cvs/scci/arqs/brb": {
+    "groupId": 1143,
+    "groupName": "sup-df"
+  },
+  "/u2/cvs/scci/arqs/c6bank": {
+    "groupId": 1074,
+    "groupName": "sup-sp"
+  },
+  "/u2/cvs/scci/arqs/cashme": {
+    "groupId": 1143,
+    "groupName": "sup-df"
+  },
+  "/u2/cvs/scci/arqs/cccpmm": {
+    "groupId": 542,
+    "groupName": "sup"
+  },
+  "/u2/cvs/scci/arqs/ccpmm": {
+    "groupId": 542,
+    "groupName": "sup"
+  },
+  "/u2/cvs/scci/arqs/cdhu": {
+    "groupId": 1074,
+    "groupName": "sup-sp"
+  },
+  "/u2/cvs/scci/arqs/cehab": {
+    "groupId": 542,
+    "groupName": "sup"
+  },
+  "/u2/cvs/scci/arqs/cfiae": {
+    "groupId": 542,
+    "groupName": "sup"
+  },
+  "/u2/cvs/scci/arqs/chb": {
+    "groupId": 542,
+    "groupName": "sup"
+  },
+  "/u2/cvs/scci/arqs/cibrasec": {
+    "groupId": 1074,
+    "groupName": "sup-sp"
+  },
+  "/u2/cvs/scci/arqs/cobansa": {
+    "groupId": 1074,
+    "groupName": "sup-sp"
+  },
+  "/u2/cvs/scci/arqs/cohabac": {
+    "groupId": 1076,
+    "groupName": "sup-sul"
+  },
+  "/u2/cvs/scci/arqs/cohabbu/Attic": {
+    "groupId": 1074,
+    "groupName": "sup-sp"
+  },
+  "/u2/cvs/scci/arqs/cohabbu": {
+    "groupId": 1085,
+    "groupName": "sup-mg"
+  },
+  "/u2/cvs/scci/arqs/cohabct": {
+    "groupId": 1076,
+    "groupName": "sup-sul"
+  },
+  "/u2/cvs/scci/arqs/cohabes": {
+    "groupId": 1085,
+    "groupName": "sup-mg"
+  },
+  "/u2/cvs/scci/arqs/cohabld": {
+    "groupId": 1085,
+    "groupName": "sup-mg"
+  },
+  "/u2/cvs/scci/arqs/cohabpa": {
+    "groupId": 1085,
+    "groupName": "sup-mg"
+  },
+  "/u2/cvs/scci/arqs/cohabrs": {
+    "groupId": 1085,
+    "groupName": "sup-mg"
+  },
+  "/u2/cvs/scci/arqs/cohabsc": {
+    "groupId": 1076,
+    "groupName": "sup-sul"
+  },
+  "/u2/cvs/scci/arqs/cohabst": {
+    "groupId": 1085,
+    "groupName": "sup-mg"
+  },
+  "/u2/cvs/scci/arqs/cohabvr": {
+    "groupId": 1085,
+    "groupName": "sup-mg"
+  },
+  "/u2/cvs/scci/arqs/cohapar": {
+    "groupId": 1076,
+    "groupName": "sup-sul"
+  },
+  "/u2/cvs/scci/arqs/contacta": {
+    "groupId": 1074,
+    "groupName": "sup-sp"
+  },
+  "/u2/cvs/scci/arqs/daycoval": {
+    "groupId": 1074,
+    "groupName": "sup-sp"
+  },
+  "/u2/cvs/scci/arqs/decre": {
+    "groupId": 1085,
+    "groupName": "sup-mg"
+  },
+  "/u2/cvs/scci/arqs/dehop": {
+    "groupId": 542,
+    "groupName": "sup"
+  },
+  "/u2/cvs/scci/arqs/demab": {
+    "groupId": 1076,
+    "groupName": "sup-sul"
+  },
+  "/u2/cvs/scci/arqs/demhab": {
+    "groupId": 1085,
+    "groupName": "sup-mg"
+  },
+  "/u2/cvs/scci/arqs/direto": {
+    "groupId": 1143,
+    "groupName": "sup-df"
+  },
+  "/u2/cvs/scci/arqs/economisa": {
+    "groupId": 542,
+    "groupName": "sup"
+  },
+  "/u2/cvs/scci/arqs/emarhp": {
+    "groupId": 1076,
+    "groupName": "sup-sul"
+  },
+  "/u2/cvs/scci/arqs/ibasm": {
+    "groupId": 542,
+    "groupName": "sup"
+  },
+  "/u2/cvs/scci/arqs/intermedium": {
+    "groupId": 542,
+    "groupName": "sup"
+  },
+  "/u2/cvs/scci/arqs/itau": {
+    "groupId": 1074,
+    "groupName": "sup-sp"
+  },
+  "/u2/cvs/scci/arqs/larcky": {
+    "groupId": 542,
+    "groupName": "sup"
+  },
+  "/u2/cvs/scci/arqs/maxima": {
+    "groupId": 1074,
+    "groupName": "sup-sp"
+  },
+  "/u2/cvs/scci/arqs/oxy": {
+    "groupId": 1074,
+    "groupName": "sup-sp"
+  },
+  "/u2/cvs/scci/arqs/piemonte": {
+    "groupId": 1076,
+    "groupName": "sup-sul"
+  },
+  "/u2/cvs/scci/arqs/poupex": {
+    "groupId": 1143,
+    "groupName": "sup-df"
+  },
+  "/u2/cvs/scci/arqs/poupexadm": {
+    "groupId": 1143,
+    "groupName": "sup-df"
+  },
+  "/u2/cvs/scci/arqs/poupexsge": {
+    "groupId": 1143,
+    "groupName": "sup-df"
+  },
+  "/u2/cvs/scci/arqs/riourbe": {
+    "groupId": 1085,
+    "groupName": "sup-mg"
+  },
+  "/u2/cvs/scci/arqs/rodobens": {
+    "groupId": 1074,
+    "groupName": "sup-sp"
+  },
+  "/u2/cvs/scci/arqs/santacecilia": {
+    "groupId": 542,
+    "groupName": "sup"
+  },
+  "/u2/cvs/scci/arqs/sicredi": {
+    "groupId": 542,
+    "groupName": "sup"
+  },
+  "/u2/cvs/scci/arqs/sulbras": {
+    "groupId": 1076,
+    "groupName": "sup-sul"
+  },
+  "/u2/cvs/scci/arqs/tetto": {
+    "groupId": 542,
+    "groupName": "sup"
+  },
+  "/u2/cvs/scci/arqs/transcontinental": {
+    "groupId": 1085,
+    "groupName": "sup-mg"
+  },
+  "/u2/cvs/scci/conv/Attic": {
+    "groupId": 505,
+    "groupName": "cvs"
+  },
+  "/u2/cvs/scci/conversao/f8": {
+    "groupId": 1154,
+    "groupName": "cvs_des"
+  },
+  "/u2/cvs/scci/conversao/itau": {
+    "groupId": 1154,
+    "groupName": "cvs_des"
+  },
+  "/u2/cvs/scci/conversao/rodobens": {
+    "groupId": 1154,
+    "groupName": "cvs_des"
+  },
+  "/u2/cvs/scci/conversao": {
+    "groupId": 505,
+    "groupName": "cvs"
+  },
+  "/u2/cvs/scci/jasper": {
+    "groupId": 505,
+    "groupName": "cvs"
+  },
+  "/u2/cvs/scci/mock": {
+    "groupId": 1076,
+    "groupName": "sup-sul"
+  },
+  "/u2/cvs/scci/semear/Attic": {
+    "groupId": 542,
+    "groupName": "sup"
+  },
+  "/u2/cvs/scci/sicredi/Attic": {
+    "groupId": 542,
+    "groupName": "sup"
+  },
+  "/u2/cvs/testcomplete/poupexsge": {
+    "groupId": 1143,
+    "groupName": "sup-df"
+  },
+  "/u2/cvs/": {
+    "groupId": 1154,
+    "groupName": "cvs_des"
+  }
+}

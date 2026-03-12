@@ -1,11 +1,10 @@
-const fs = require("node:fs/promises");
-const path = require("node:path");
+import * as fs from "node:fs/promises";
+import * as path from "node:path";
 
 const readGroupNamesByGroupId = async () => {
     const groupNamesByGroupId = {};
     try {
         const groupFile = await fs.readFile("/etc/group", "utf8");
-
         groupFile.split("\n").forEach(line => {
             if (!line) {
                 return;
@@ -26,81 +25,66 @@ const readGroupNamesByGroupId = async () => {
 
 const root = process.argv[2] || ".";
 
-const scanRootDir = async (rootDir) => {
+const scanRootDir = async (rootPath) => {
     const scan = async (parentPath) => {
         try {
             const entries = await fs.readdir(parentPath, { withFileTypes: true });
-            let groupId = null;
+            const pathsAndGroupIds = [];
             let isEmpty = true;
-            let saveEntries = false;
-            let pathsAndGroupIds = [];
 
             for (const entry of entries) {
-                if (entry.name === "CVS" || entry.name === "CVSROOT") {
-                    continue;
-                }
-                const name = entry.name;
-                const fullPath = path.join(parentPath, name);
                 if (entry.isSymbolicLink() || (!entry.isDirectory() && !entry.isFile())) {
                     continue;
                 }
-
+                if (entry.name === "CVS" || entry.name === "CVSROOT") {
+                    continue;
+                }
+                const name = entry.name.toString("utf8");
+                const entryPath = path.join(parentPath, name);
                 let entryGroupId;
                 if (entry.isDirectory()) {
-                    entryGroupId = scan(fullPath);
+                    entryGroupId = await scan(entryPath);
+                    if (entryGroupId === null) {
+                        continue;
+                    }
                 } else {
                     try {
-                        const stats = fs.statSync(fullPath);
+                        const stats = await fs.stat(entryPath);
                         entryGroupId = stats.gid;
+
+                        const groupId = entryGroupId;
+                        const groupName = groupNamesByGroupId[groupId];
+                        groupsByPath[entryPath] = { groupId, groupName };
                     } catch (e) {
-                        console.error("!", fullPath, e.code);
+                        console.error("!", entryPath, e.code);
                         continue;
                     }
                 }
-                if (entryGroupId === null) {
-                    continue;
-                }
+                pathsAndGroupIds.push([entryPath, entryGroupId]);
 
-                pathsAndGroupIds.push([fullPath, entryGroupId]);
                 isEmpty = false;
-                if (groupId === null) {
-                    groupId = entryGroupId;
-                }
-
-                if (groupId !== null && groupId !== entryGroupId) {
-                    saveEntries = true;
-                }
             }
             if (isEmpty) {
                 return null;
             }
-            if (saveEntries) {
-                const countByGroupId = {};
-                for (const fullPathAndGroupId of pathsAndGroupIds) {
-                    const [, groupId] = fullPathAndGroupId;
-                    countByGroupId[groupId] = (countByGroupId[groupId] ?? 0) + 1;
-                }
-                let maxGroupId = null;
-                let maxCount = 0;
-                for (const key in countByGroupId) {
-                    const groupId = Number(key);
-                    const count = countByGroupId[groupId];
-                    if (count > maxCount) {
-                        maxCount = count;
-                        maxGroupId = groupId;
-                    }
-                }
-                const maxGroupName = groupNamesByGroupId[maxGroupId];
-                groupsByPath[parentPath] = { groupId: maxGroupId, groupName: maxGroupName };
-                for (const pathAndGroupId of pathsAndGroupIds) {
-                    const [path, groupId] = pathAndGroupId;
-                    const groupName = groupNamesByGroupId[groupId];
-                    groupsByPath[path] = { groupId, groupName };
-                }
-                return maxGroupId;
+            const countByGroupId = {};
+            for (const pathAndGroupId of pathsAndGroupIds) {
+                const [, groupId] = pathAndGroupId;
+                countByGroupId[groupId] = (countByGroupId[groupId] ?? 0) + 1;
             }
-
-            return groupId;
+            let maxGroupId = null;
+            let maxCount = 0;
+            for (const key in countByGroupId) {
+                const groupId = Number(key);
+                const count = countByGroupId[groupId];
+                if (count > maxCount) {
+                    maxCount = count;
+                    maxGroupId = groupId;
+                }
+            }
+            const maxGroupName = groupNamesByGroupId[maxGroupId];
+            groupsByPath[parentPath] = { groupId: maxGroupId, groupName: maxGroupName };
+            return maxGroupId;
         } catch (e) {
             console.error('#', parentPath, e.code);
             return null;
@@ -111,20 +95,27 @@ const scanRootDir = async (rootDir) => {
         try {
             const entries = await fs.readdir(parentPath, { withFileTypes: true });
             for (const entry of entries) {
+                if (entry.isSymbolicLink() || (!entry.isDirectory() && !entry.isFile())) {
+                    continue;
+                }
                 if (entry.name === "CVS" || entry.name === "CVSROOT") {
                     continue;
                 }
-                const name = entry.name;
+                const name = entry.name.toString("utf8");
                 const entryPath = path.join(parentPath, name);
                 const entryGroup = groupsByPath[entryPath];
-                const { groupId: entryGroupId } = entryGroup;
-                if (entryGroupId === parentGroupId) {
-                    groupsByPath[entryPath] = undefined;
+                if (entryGroup !== undefined) {
+                    const { groupId: entryGroupId } = entryGroup;
+                    if (entryGroupId === parentGroupId) {
+                        groupsByPath[entryPath] = undefined;
+                    }
+                    if (entry.isDirectory()) {
+                        await removeRepetition(entryPath, entryGroupId);
+                    }
                 }
-                await removeRepetition(entryPath, entryGroupId);
             }
         } catch (e) {
-            console.error('#', parentPath, e.code);
+            console.error('@', parentPath, e.code);
         }
     };
 
@@ -132,16 +123,12 @@ const scanRootDir = async (rootDir) => {
 
     const groupsByPath = {};
 
-    const rootGroupId = scan(rootDir);
-    if (rootGroupId !== null) {
-        const groupName = groupNamesByGroupId[rootGroupId];
-        groupsByPath[rootDir] = { groupId, groupName };
-    }
-    removeRepetition(rootDir, rootGroupId);
+    const rootGroupId = await scan(rootPath);
+    await removeRepetition(rootPath, rootGroupId);
 
     return groupsByPath;
 }
 
-const groupsByPath = scanRootDir(root);
+const groupsByPath = await scanRootDir(root);
 
 console.log(JSON.stringify(groupsByPath, null, 2));
