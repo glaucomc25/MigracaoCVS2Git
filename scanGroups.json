@@ -1,4 +1,8 @@
 {
+  "/u2/cvs/ARQUIVOS_TESTES": {
+    "groupId": 1154,
+    "groupName": "cvs_des"
+  },
   "/u2/cvs/BRB_SCCI-SYMANTEC.side,v": {
     "groupId": 505,
     "groupName": "cvs"
@@ -66,6 +70,10 @@
     "groupId": 505,
     "groupName": "cvs"
   },
+  "/u2/cvs/extws": {
+    "groupId": 1154,
+    "groupName": "cvs_des"
+  },
   "/u2/cvs/extws7": {
     "groupId": 505,
     "groupName": "cvs"
@@ -81,6 +89,10 @@
   "/u2/cvs/proglib/evolib": {
     "groupId": 1140,
     "groupName": "cvs_master"
+  },
+  "/u2/cvs/proglib": {
+    "groupId": 1154,
+    "groupName": "cvs_des"
   },
   "/u2/cvs/scci/arqs/ailos": {
     "groupId": 542,
@@ -374,11 +386,19 @@
     "groupId": 542,
     "groupName": "sup"
   },
+  "/u2/cvs/scci": {
+    "groupId": 1154,
+    "groupName": "cvs_des"
+  },
+  "/u2/cvs/sccigraf": {
+    "groupId": 1154,
+    "groupName": "cvs_des"
+  },
   "/u2/cvs/testcomplete/poupexsge": {
     "groupId": 1143,
     "groupName": "sup-df"
   },
-  "/u2/cvs/": {
+  "/u2/cvs": {
     "groupId": 1154,
     "groupName": "cvs_des"
   }
