@@ -1,6 +1,19 @@
 import * as fs from "node:fs/promises";
 import * as path from "node:path";
 
+
+const keepByDepthByName = {
+    1: {
+        "ARQUIVOS_TESTES": true,
+        "scci": true,
+        "sccigraf": true,
+        "proglib": true,
+        "extws": true,
+        "docker": true,
+        "Testes_Automatizados": true,
+    }
+};
+
 const readGroupNamesByGroupId = async () => {
     const groupNamesByGroupId = {};
     try {
@@ -56,7 +69,7 @@ const scanRootDir = async (rootPath) => {
                         const groupName = groupNamesByGroupId[groupId];
                         groupsByPath[entryPath] = { groupId, groupName };
                     } catch (e) {
-                        console.error("!", entryPath, e.code);
+                        console.error("!", entryPath, e.code, e.message);
                         continue;
                     }
                 }
@@ -86,13 +99,14 @@ const scanRootDir = async (rootPath) => {
             groupsByPath[parentPath] = { groupId: maxGroupId, groupName: maxGroupName };
             return maxGroupId;
         } catch (e) {
-            console.error('#', parentPath, e.code);
+            console.error('#', parentPath, e.code, e.message);
             return null;
         }
     };
 
-    const removeRepetition = async (parentPath, parentGroupId) => {
+    const removeRepetition = async (parentPath, parentGroupId, parentDepth) => {
         try {
+            const entryDepth = parentDepth + 1;
             const entries = await fs.readdir(parentPath, { withFileTypes: true });
             for (const entry of entries) {
                 if (entry.isSymbolicLink() || (!entry.isDirectory() && !entry.isFile())) {
@@ -105,17 +119,18 @@ const scanRootDir = async (rootPath) => {
                 const entryPath = path.join(parentPath, name);
                 const entryGroup = groupsByPath[entryPath];
                 if (entryGroup !== undefined) {
+                    const keep = keepByDepthByName[entryDepth]?.[name];
                     const { groupId: entryGroupId } = entryGroup;
-                    if (entryGroupId === parentGroupId) {
+                    if (entryGroupId === parentGroupId && !keep) {
                         groupsByPath[entryPath] = undefined;
                     }
                     if (entry.isDirectory()) {
-                        await removeRepetition(entryPath, entryGroupId);
+                        await removeRepetition(entryPath, entryGroupId, entryDepth);
                     }
                 }
             }
         } catch (e) {
-            console.error('@', parentPath, e.code);
+            console.error('@', parentPath, e.code, e.message);
         }
     };
 
@@ -124,7 +139,7 @@ const scanRootDir = async (rootPath) => {
     const groupsByPath = {};
 
     const rootGroupId = await scan(rootPath);
-    await removeRepetition(rootPath, rootGroupId);
+    await removeRepetition(rootPath, rootGroupId, 0);
 
     return groupsByPath;
 }
